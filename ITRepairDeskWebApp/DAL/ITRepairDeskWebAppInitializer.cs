@@ -27,7 +27,7 @@ namespace ITRepairDeskWebApp.DAL
 
             var jobs = new List<Job>
             {
-            new Job{JobID=1050,Title="Chemistry", Status=Status.New, Priority=Priority.Critical},
+            new Job{JobID=1050,Title="Mouse is broken", Detail="Needs Replacing", Status=Status.New, Priority=Priority.Critical},
             new Job{JobID=4022,Title="Microeconomics",},
             new Job{JobID=4041,Title="Macroeconomics",},
             new Job{JobID=1045,Title="Calculus",},
