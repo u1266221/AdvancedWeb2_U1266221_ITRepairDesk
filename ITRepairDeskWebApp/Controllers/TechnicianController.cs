@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ITRepairDeskWebApp.DAL;
 using ITRepairDeskWebApp.Models;
+using PagedList;
 
 namespace ITRepairDeskWebApp.Controllers
 {
@@ -16,9 +17,50 @@ namespace ITRepairDeskWebApp.Controllers
         private ITRepairDeskWebAppContext db = new ITRepairDeskWebAppContext();
 
         // GET: Technician
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Technicians.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var technicians = from s in db.Technicians
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                technicians = technicians.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstMidName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    technicians = technicians.OrderByDescending(s => s.LastName);
+                    break;
+                case "Date":
+                    technicians = technicians.OrderBy(s => s.JobAssignDate);
+                    break;
+                case "date_desc":
+                    technicians = technicians.OrderByDescending(s => s.JobAssignDate);
+                    break;
+                default:
+                    technicians = technicians.OrderBy(s => s.LastName);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(technicians.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Technician/Details/5

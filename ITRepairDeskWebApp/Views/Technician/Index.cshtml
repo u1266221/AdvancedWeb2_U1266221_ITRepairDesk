@@ -1,32 +1,44 @@
-﻿@model IEnumerable<ITRepairDeskWebApp.Models.Technician>
-
+﻿
+@model PagedList.IPagedList<ITRepairDeskWebApp.Models.Technician>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Technicians";
 }
 
-<h2>Index</h2>
+<h2>Technicians</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Technician", FormMethod.Get))
+{
+    <p>
+        Search by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            Sort by
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstMidName)
+            First Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.JobAssignDate)
+            Sort by Date/Time <br />
+            @Html.ActionLink("Job Assigned Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactNo)
+            Contact Number
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -55,3 +67,8 @@
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

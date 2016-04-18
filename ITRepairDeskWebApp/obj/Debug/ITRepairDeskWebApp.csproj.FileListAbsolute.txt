@@ -55,3 +55,7 @@ C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebA
 C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\obj\Debug\ITRepairDeskWebApp.csprojResolveAssemblyReference.cache
 C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\obj\Debug\ITRepairDeskWebApp.dll
 C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\obj\Debug\ITRepairDeskWebApp.pdb
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.dll
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.Mvc.dll
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.xml
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.Mvc.xml
