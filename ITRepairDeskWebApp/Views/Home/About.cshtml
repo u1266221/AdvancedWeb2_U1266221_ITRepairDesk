@@ -1,7 +1,30 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model IEnumerable<ITRepairDeskWebApp.ViewModels.JobAssignmentDateGroup>
 
-<p>Use this area to provide additional information.</p>
+@{
+    ViewBag.Title = "Technician Statistics";
+}
+
+<h2>Technician Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Job Assigned Date
+        </th>
+        <th>
+            Technicians
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobAssignDate)
+            </td>
+            <td>
+                @item.TechnicianCount
+            </td>
+        </tr>
+    }
+</table>
