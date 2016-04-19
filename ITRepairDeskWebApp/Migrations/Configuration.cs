@@ -39,10 +39,10 @@ namespace ITRepairDeskWebApp.Migrations
 
             var jobs = new List<Job>
             {
-                new Job {JobID = 1040, Title = "Mouse", Detail="Mouse need replacing",
+                new Job {JobID = 1050, Title = "Mouse", Detail="Mouse need replacing",
                     Status =Status.New,Priority=Priority.Critical  },
 
-                new Job {JobID = 1020, Title = "Keyboard", Detail="Need replacing",
+                new Job {JobID = 1050, Title = "Keyboard", Detail="Need replacing",
                     Status =Status.New,Priority=Priority.Critical  },
 
                 new Job {JobID = 1050, Title = "Laptop", Detail="Need replacing",
