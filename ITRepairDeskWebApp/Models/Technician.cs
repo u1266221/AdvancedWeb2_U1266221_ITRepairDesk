@@ -14,5 +14,6 @@ namespace ITRepairDeskWebApp.Models
         public string ContactNo { get; set; }
 
         public virtual ICollection<JobAssignment> JobAssignments { get; set; }
+       
     }
 }

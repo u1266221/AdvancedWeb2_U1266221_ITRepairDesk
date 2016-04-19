@@ -59,3 +59,6 @@ C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebA
 C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.Mvc.dll
 C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.xml
 C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\bin\PagedList.Mvc.xml
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\obj\Debug\ITRepairDeskWebApp.Migrations.InitialCreate.resources
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\obj\Debug\ITRepairDeskWebApp.csproj.GenerateResource.Cache
+C:\Users\Jozell\Source\Repos\AdvancedWeb2_U1266221_ITRepairDesk\ITRepairDeskWebApp\obj\Debug\ITRepairDeskWebApp.Migrations.InitialCreate1.resources
