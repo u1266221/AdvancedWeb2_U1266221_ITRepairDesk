@@ -7,13 +7,13 @@ namespace ITRepairDeskWebApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialCreate1 : IMigrationMetadata
+    public sealed partial class ChangedJobStringLength : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedJobStringLength));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604192224437_InitialCreate1"; }
+            get { return "201604262006091_ChangedJobStringLength"; }
         }
         
         string IMigrationMetadata.Source

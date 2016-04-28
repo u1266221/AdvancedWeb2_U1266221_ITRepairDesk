@@ -1,0 +1,143 @@
+﻿@model ITRepairDeskWebApp.ViewModels.ClientIndexData
+
+@{
+    ViewBag.Title =  "Index";
+}
+
+<h2>Client Records</h2>
+
+<p>
+    @Html.ActionLink("Record New Client", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th><br /></th>
+        <th>Email</th>
+        <th>ExtNo</th>
+        <th>Office Location</th>
+        <th>Jobs</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Clients)
+{
+    string selectedRow = "";
+    if (item.ClientID == ViewBag.ClientID)
+    {
+        selectedRow = "success";
+    }
+    <tr class="@selectedRow">
+
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExtNo)
+        </td>
+        <td>
+            @if (item.ClientOffice != null)
+                {
+                @item.ClientOffice.Location
+            }
+        </td>
+        <td>
+            @{
+                foreach (var job in item.Jobs)
+                {
+                    @job.JobID @:  @job.Title <br />
+                }
+            }
+        </td>
+
+        <td>
+            @Html.ActionLink("Select", "Index", new { id = item.ClientID }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ClientID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@if (Model.Jobs != null)
+{
+    <h3>Jobs for this Client</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Job ID</th>
+            <th>Title</th>
+            <th>Detail</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Department</th>
+        </tr>
+
+        @foreach (var item in Model.Jobs)
+        {
+            string selectedRow = "";
+            if (item.JobID == ViewBag.JobID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { jobID = item.JobID })
+                </td>
+                <td>
+                    @item.JobID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Detail
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    @item.Priority
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@if (Model.JobAssignments != null)
+{
+    <h3>
+        Technician Assigned in Selected Job
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Job ID</th>
+        </tr>
+        @foreach (var item in Model.JobAssignments)
+        {
+            <tr>
+                <td>
+                    @item.Technician.FullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobID)
+                </td>
+            </tr>
+        }
+    </table>
+}
+

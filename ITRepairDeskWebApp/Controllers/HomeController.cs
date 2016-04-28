@@ -22,12 +22,14 @@ namespace ITRepairDeskWebApp.Controllers
         public ActionResult About()
         {
             IQueryable<JobAssignmentDateGroup> data = from technician in db.Technicians
-                                                   group technician by technician.JobAssignDate into dateGroup
-                                                   select new JobAssignmentDateGroup()
-                                                   {
-                                                       JobAssignDate = dateGroup.Key,
-                                                       TechnicianCount = dateGroup.Count()
-                                                   };
+                                                      group technician by technician.JobAssignDate into dateGroup
+                                                      select new JobAssignmentDateGroup()
+                                                      {
+                                                          JobAssignDate = dateGroup.Key,
+                                                          TechnicianCount = dateGroup.Count()
+
+
+        };
             return View(data.ToList());
         }
         protected override void Dispose(bool disposing)

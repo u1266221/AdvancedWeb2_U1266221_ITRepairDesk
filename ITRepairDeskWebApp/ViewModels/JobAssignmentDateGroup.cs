@@ -7,7 +7,10 @@ namespace ITRepairDeskWebApp.ViewModels
     {
         [DataType(DataType.Date)]
         public DateTime? JobAssignDate { get; set; }
-
         public int TechnicianCount { get; set; }
+
+
+
+
     }
 }

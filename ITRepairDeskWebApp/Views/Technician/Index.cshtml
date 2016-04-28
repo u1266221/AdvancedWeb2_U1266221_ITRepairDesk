@@ -23,11 +23,15 @@
 <table class="table">
     <tr>
         <th>
-            Sort by
-            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            ID
         </th>
         <th>
-            First Name
+            Sort by
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            <br/> Technician 
+        </th>
+        <th>
+            <br/>
         </th>
         <th>
             Sort by Date/Time <br />
@@ -37,17 +41,21 @@
             Email
         </th>
         <th>
-            Contact Number
+            Ext.No
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.TechnicianID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstMidName)
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            <br/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.JobAssignDate)
@@ -58,6 +66,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.ContactNo)
         </td>
+
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TechnicianID }) |
             @Html.ActionLink("Details", "Details", new { id=item.TechnicianID }) |

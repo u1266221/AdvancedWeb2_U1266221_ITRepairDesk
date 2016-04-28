@@ -164,27 +164,60 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\ClientOfficeController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobAssignmentController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\TechnicianController.cs" />
     <Compile Include="DAL\ITRepairDeskWebAppContext.cs" />
     <Compile Include="DAL\ITRepairDeskWebAppInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604192221428_InitialCreate.cs" />
-    <Compile Include="Migrations\201604192221428_InitialCreate.Designer.cs">
-      <DependentUpon>201604192221428_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201604211544565_InitialCreate.cs" />
+    <Compile Include="Migrations\201604211544565_InitialCreate.Designer.cs">
+      <DependentUpon>201604211544565_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604192224437_InitialCreate1.cs" />
-    <Compile Include="Migrations\201604192224437_InitialCreate1.Designer.cs">
-      <DependentUpon>201604192224437_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\201604211622233_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201604211622233_ComplexDataModel.Designer.cs">
+      <DependentUpon>201604211622233_ComplexDataModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604212341423_ReadingRelatedData.cs" />
+    <Compile Include="Migrations\201604212341423_ReadingRelatedData.Designer.cs">
+      <DependentUpon>201604212341423_ReadingRelatedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604222118593_ModifyingModels.cs" />
+    <Compile Include="Migrations\201604222118593_ModifyingModels.Designer.cs">
+      <DependentUpon>201604222118593_ModifyingModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604231459106_UpdatingRelatedData.cs" />
+    <Compile Include="Migrations\201604231459106_UpdatingRelatedData.Designer.cs">
+      <DependentUpon>201604231459106_UpdatingRelatedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604231547308_ModifyingJobAssignment.cs" />
+    <Compile Include="Migrations\201604231547308_ModifyingJobAssignment.Designer.cs">
+      <DependentUpon>201604231547308_ModifyingJobAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604262006091_ChangedJobStringLength.cs" />
+    <Compile Include="Migrations\201604262006091_ChangedJobStringLength.Designer.cs">
+      <DependentUpon>201604262006091_ChangedJobStringLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604262147386_ModifyingDataModel.cs" />
+    <Compile Include="Migrations\201604262147386_ModifyingDataModel.Designer.cs">
+      <DependentUpon>201604262147386_ModifyingDataModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientOffice.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobAssignment.cs" />
     <Compile Include="Models\Technician.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AssignedJobData.cs" />
+    <Compile Include="ViewModels\ClientIndexData.cs" />
     <Compile Include="ViewModels\JobAssignmentDateGroup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +228,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\nav-bg.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -235,6 +269,31 @@
     <Content Include="Views\Technician\Details.cshtml" />
     <Content Include="Views\Technician\Edit.cshtml" />
     <Content Include="Views\Technician\Index.cshtml" />
+    <Content Include="Views\JobAssignment\Create.cshtml" />
+    <Content Include="Views\JobAssignment\Delete.cshtml" />
+    <Content Include="Views\JobAssignment\Details.cshtml" />
+    <Content Include="Views\JobAssignment\Edit.cshtml" />
+    <Content Include="Views\JobAssignment\Index.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\ClientOffice\Create.cshtml" />
+    <Content Include="Views\ClientOffice\Delete.cshtml" />
+    <Content Include="Views\ClientOffice\Details.cshtml" />
+    <Content Include="Views\ClientOffice\Edit.cshtml" />
+    <Content Include="Views\ClientOffice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,11 +307,29 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604192221428_InitialCreate.resx">
-      <DependentUpon>201604192221428_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604211544565_InitialCreate.resx">
+      <DependentUpon>201604211544565_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604192224437_InitialCreate1.resx">
-      <DependentUpon>201604192224437_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604211622233_ComplexDataModel.resx">
+      <DependentUpon>201604211622233_ComplexDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604212341423_ReadingRelatedData.resx">
+      <DependentUpon>201604212341423_ReadingRelatedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604222118593_ModifyingModels.resx">
+      <DependentUpon>201604222118593_ModifyingModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604231459106_UpdatingRelatedData.resx">
+      <DependentUpon>201604231459106_UpdatingRelatedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604231547308_ModifyingJobAssignment.resx">
+      <DependentUpon>201604231547308_ModifyingJobAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604262006091_ChangedJobStringLength.resx">
+      <DependentUpon>201604262006091_ChangedJobStringLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604262147386_ModifyingDataModel.resx">
+      <DependentUpon>201604262147386_ModifyingDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

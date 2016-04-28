@@ -13,7 +13,7 @@ namespace ITRepairDeskWebApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201604192221428_InitialCreate"; }
+            get { return "201604211544565_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

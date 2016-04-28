@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ITRepairDeskWebApp.Models.JobAssignment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Assign Jobs</h2>
+
+<p>
+    @Html.ActionLink("Assign a Job", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Job.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Technician.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technician.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobAssignmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobAssignmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobAssignmentID })
+        </td>
+    </tr>
+}
+
+</table>
