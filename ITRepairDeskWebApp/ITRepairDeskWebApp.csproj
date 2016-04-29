@@ -221,6 +221,7 @@
     <Compile Include="ViewModels\JobAssignmentDateGroup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-def.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
